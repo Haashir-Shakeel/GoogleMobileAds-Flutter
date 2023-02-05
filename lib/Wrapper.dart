@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import 'detail_wrapper.dart';
+
 class Wrapper extends StatefulWidget {
   final List<Map<String, dynamic>> Sunlist;
   Wrapper({required this.Sunlist});
@@ -69,7 +71,13 @@ class _WrapperState extends State<Wrapper> {
             Container(height: MediaQuery.of(context).size.height*0.6,
             color: Colors.red,
             ),
-            ElevatedButton(onPressed: (){}, child: Center(child: Text('button'),))
+            ElevatedButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => DetailWrapper(Sunlist: widget.Sunlist),
+                  ));
+                },
+                child: Center(child: Text('button'),))
           ],
 
 

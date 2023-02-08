@@ -62,13 +62,25 @@ class _DetailWrapperState extends State<DetailWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('AdPage'),),
+        appBar: AppBar(title: Text('AdPage'),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: (){
+            if (isAdLoaded){
+              interstitialAd.show();
+            } else{
+              Navigator.pop(context);
+            }
+          },
+        ),
+        ),
         body: SingleChildScrollView(
           child: Column(
 
             children: [
 
-            Container(height: MediaQuery.of(context).size.height*0.6,
+            Container(height: MediaQuery.of(context).size.height*0.2,
             color: Colors.red,
             ),
             ElevatedButton(
